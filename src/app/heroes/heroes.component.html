@@ -1,0 +1,37 @@
+<h2>My Heroes</h2>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+  </li>
+</ul>
+<tr *ngFor="let op of heroes; let i = index">
+  <td>
+    <input type="radio" name="optradio" [checked]=" (i === 1)" (change)="buttonChange(i)">
+    <label>{{op.name}} </label>
+  <td>
+</tr>
+<form class="heroes">
+  <label class="block"><input type="radio" name="radgroup" value="A" (change)="buttonChange(1)">Option A</label>
+  <label class="block"><input type="radio" name="radgroup" value="B" (change)="buttonChange(2)">Option B</label>
+  <label class="block"><input type="radio" name="radgroup" value="C" (change)="buttonChange(3)">Option C</label>
+  <label class="block"><input type="radio" name="radgroup" value="D" (change)="buttonChange(4)">Option D</label>
+</form>
+  <div>
+
+    <label>Hero name:
+      <input #heroName />
+    </label>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="add(heroName.value); heroName.value=''">
+      add
+    </button>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="radioGroup(radgroup)">
+      RadioGroup
+    </button>
+    <label>
+      <input [disabled]="desadv" [(ngModel)]="testRadio" placeholder="testradio"/>
+    </label>
+  </div>

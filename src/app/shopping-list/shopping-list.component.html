@@ -1,0 +1,13 @@
+<h1>
+  Indkøbsseddel
+</h1>
+<div>
+
+  <label>Vare:
+    <input #heroName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(heroName.value); heroName.value=''">
+    Tilføj
+  </button>
+</div>
